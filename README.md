@@ -1,4 +1,4 @@
-h1 align="center">🌐 HSALink</h1>
+<h1 align="center">🌐 HSALink</h1>
 
 <p align="center">
   <em>Rede social voltada para Hidráulica e Saneamento Ambiental (HSA)</em>
@@ -48,7 +48,9 @@ A proposta é construir um espaço colaborativo para **troca de experiências**,
 
 ## 📁 Estrutura do Projeto
 
+```
 HSALink/ │ ├── assets/              # Imagens, ícones, estilos e scripts │   ├── css/ │   ├── img/ │   └── js/ │ ├── index.html           # Página inicial ├── user.html            # Página de perfil de usuário └── README.md            # Documentação do projeto
+```
 
 ---
 
