@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta - HSALink</title>
+    <link rel="stylesheet" href="assets/css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-leaf"></i> HSALink
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Feed</a></li>
+                    <li><a href="#">Explorar</a></li>
+                    <li><a href="#">Categorias</a></li>
+                    <li><a href="#">Favoritos</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <div class="user-info" id="userInfo">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Avatar do usuário" class="user-avatar">
+                        <span>João Silva</span>
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="#" id="profileBtn">Meu Perfil</a>
+                            <a href="#" id="savedPostsBtn">Posts Salvos</a>
+                            <a href="#" id="myPostsBtn">Meus Posts</a>
+                            <a href="#" id="logoutBtn">Sair</a>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="createPostBtn">Novo Post</button>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- User Profile Header -->
+            <section class="user-header">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Foto de perfil" class="profile-avatar">
+                <div class="profile-info">
+                    <h1>João Silva</h1>
+                    <p>Estudante de Hidráulica e Saneamento Ambiental na Fatec-SP</p>
+                    <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP</p>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <div class="stat-value">24</div>
+                            <div class="stat-label">Posts</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">128</div>
+                            <div class="stat-label">Seguidores</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">56</div>
+                            <div class="stat-label">Seguindo</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Search and Filter -->
+            <section class="search-section">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Pesquisar posts...">
+                    <button class="btn btn-primary" id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="filter-options">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="hidraulica">Hidráulica</button>
+                    <button class="filter-btn" data-filter="saneamento">Saneamento</button>
+                    <button class="filter-btn" data-filter="recursos-hidricos">Recursos Hídricos</button>
+                    <button class="filter-btn" data-filter="sustentabilidade">Sustentabilidade</button>
+                    <button class="filter-btn" data-filter="tecnologia">Tecnologia</button>
+                </div>
+            </section>
+
+            <!-- Create Post -->
+            <section class="create-post">
+                <div class="create-post-header">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Seu avatar" class="create-post-avatar">
+                    <div>
+                        <h3>João Silva</h3>
+                        <p>O que você está pensando?</p>
+                    </div>
+                </div>
+                <textarea id="postContent" placeholder="Compartilhe suas ideias, projetos ou descobertas..."></textarea>
+                <div class="create-post-options">
+                    <div class="post-actions">
+                        <div class="post-action" id="addImageBtn">
+                            <i class="fas fa-image"></i>
+                            <span>Imagem</span>
+                        </div>
+                        <div class="post-action" id="addTagBtn">
+                            <i class="fas fa-tag"></i>
+                            <span>Tag</span>
+                        </div>
+                        <div class="post-action" id="addCategoryBtn">
+                            <i class="fas fa-folder"></i>
+                            <span>Categoria</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="publishPostBtn">Publicar</button>
+                </div>
+            </section>
+
+            <!-- Posts Grid -->
+            <section class="posts-grid" id="postsGrid">
+                <!-- Posts will be dynamically inserted here -->
+            </section>
+        </div>
+    </main>
+
+    <!-- Post Modal -->
+    <div class="modal" id="postModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img src="" alt="Imagem do post" class="modal-post-image" id="modalPostImage">
+            <div class="modal-post-content">
+                <div class="modal-post-header">
+                    <img src="" alt="Autor do post" class="modal-post-author-avatar" id="modalPostAuthorAvatar">
+                    <div>
+                        <h3 id="modalPostAuthor"></h3>
+                        <p class="post-date" id="modalPostDate"></p>
+                    </div>
+                </div>
+                <div class="modal-post-tags" id="modalPostTags">
+                    <!-- Tags will be inserted here -->
+                </div>
+                <h2 id="modalPostTitle"></h2>
+                <div class="modal-post-body" id="modalPostBody">
+                    <!-- Post content will be inserted here -->
+                </div>
+                <div class="modal-post-stats">
+                    <div><i class="far fa-heart"></i> <span id="modalPostLikes">0</span> curtidas</div>
+                    <div><i class="far fa-comment"></i> <span id="modalPostComments">0</span> comentários</div>
+                </div>
+                <div class="modal-post-actions">
+                    <button class="btn btn-outline" id="modalLikeBtn"><i class="far fa-heart"></i> Curtir</button>
+                    <button class="btn btn-outline" id="modalSaveBtn"><i class="far fa-bookmark"></i> Salvar</button>
+                    <button class="btn btn-primary" id="modalShareBtn"><i class="fas fa-share"></i> Compartilhar</button>
+                </div>
+                <div class="comments-section">
+                    <h3>Comentários</h3>
+                    <div class="comment-form">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Seu avatar" class="comment-avatar">
+                        <input type="text" class="comment-input" id="commentInput" placeholder="Adicione um comentário...">
+                        <button class="btn btn-primary" id="submitCommentBtn">Comentar</button>
+                    </div>
+                    <div class="comments-list" id="commentsList">
+                        <!-- Comments will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Post Modal -->
+    <div class="modal create-post-modal" id="createPostModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="create-post-form">
+                <h2>Criar Novo Post</h2>
+                <form id="newPostForm">
+                    <div class="form-group">
+                        <label for="postTitle">Título</label>
+                        <input type="text" id="postTitle" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="postContentFull">Conteúdo</label>
+                        <textarea id="postContentFull" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="postImage">Imagem (URL)</label>
+                        <input type="text" id="postImage" class="form-control" placeholder="https://...">
+                    </div>
+                    <div class="form-group">
+                        <label for="postTags">Tags</label>
+                        <div class="tags-input" id="tagsInput">
+                            <input type="text" class="tag-input" id="tagInput" placeholder="Digite uma tag e pressione Enter">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="postCategory">Categoria</label>
+                        <select id="postCategory" class="category-select">
+                            <option value="hidraulica">Hidráulica</option>
+                            <option value="saneamento">Saneamento</option>
+                            <option value="recursos-hidricos">Recursos Hídricos</option>
+                            <option value="sustentabilidade">Sustentabilidade</option>
+                            <option value="tecnologia">Tecnologia</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="cancelPostBtn">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Publicar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal profile-modal" id="profileModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="profile-form">
+                <h2>Editar Perfil</h2>
+                <form id="profileForm">
+                    <div class="profile-avatar-upload">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Foto de perfil" class="profile-avatar-preview" id="profileAvatarPreview">
+                        <label for="avatarUpload" class="avatar-upload-btn">
+                            <i class="fas fa-camera"></i> Alterar Foto
+                        </label>
+                        <input type="file" id="avatarUpload" accept="image/*" style="display: none;">
+                    </div>
+                    <div class="form-group">
+                        <label for="profileName">Nome</label>
+                        <input type="text" id="profileName" class="form-control" value="João Silva" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileBio">Biografia</label>
+                        <textarea id="profileBio" class="form-control">Estudante de Hidráulica e Saneamento Ambiental na Fatec-SP</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileLocation">Localização</label>
+                        <input type="text" id="profileLocation" class="form-control" value="São Paulo, SP">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="cancelProfileBtn">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/user.js"></script>
+</body>
+</html>
