@@ -49,7 +49,14 @@ A proposta é construir um espaço colaborativo para **troca de experiências**,
 ## 📁 Estrutura do Projeto
 
 ```
-HSALink/ │ ├── assets/              # Imagens, ícones, estilos e scripts │   ├── css/ │   ├── img/ │   └── js/ │ ├── index.html           # Página inicial ├── user.html            # Página de perfil de usuário └── README.md            # Documentação do projeto
+HSALink/
+├── 📂 assets/
+│   ├── 📂 css/          # Arquivos de estilo
+│   ├── 📂 img/          # Imagens e ícones
+│   └── 📂 js/           # Scripts JavaScript
+├── 🌐 index.html        # Página inicial
+├── 👤 user.html         # Página de perfil do usuário
+└── 📄 README.md         # Documentação
 ```
 
 ---
