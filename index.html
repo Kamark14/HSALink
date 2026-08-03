@@ -4,232 +4,1440 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HSALink - Blog e Rede Social Ambiental</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Meta Tags para SEO -->
+    <meta name="description" content="HSALink - Plataforma digital que une blog ambiental, rede social acadêmica e centro de notícias sobre Hidráulica e Saneamento Ambiental.">
+    <meta name="keywords" content="hidráulica, saneamento ambiental, recursos hídricos, sustentabilidade, Fatec, blog ambiental">
+    <meta name="author" content="HSALink">
+    <meta property="og:title" content="HSALink - Blog e Rede Social Ambiental">
+    <meta property="og:description" content="Conectando o futuro do saneamento ambiental através de conhecimento, inovação e comunidade.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hsalink.com.br">
+    <meta name="robots" content="index, follow">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --verde-limao: #7CB518;
+            --verde-escuro: #2D5016;
+            --azul-agua: #1E88E5;
+            --azul-escuro: #0D47A1;
+            --cinza-claro: #F5F5F5;
+            --cinza-medio: #E0E0E0;
+            --cinza-escuro: #424242;
+            --branco: #FFFFFF;
+            --preto: #1A1A1A;
+            --sombra: 0 4px 20px rgba(0,0,0,0.1);
+            --sombra-hover: 0 8px 30px rgba(0,0,0,0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            color: var(--preto);
+            background-color: var(--branco);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--verde-limao);
+            color: var(--branco);
+            border-color: var(--verde-limao);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--verde-escuro);
+            border-color: var(--verde-escuro);
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--verde-limao);
+            border-color: var(--verde-limao);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--verde-limao);
+            color: var(--branco);
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .btn-outline-2 {
+            background-color: transparent;
+            color: var(--azul-agua);
+            border-color: var(--azul-agua);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            border: 2px solid var(--azul-agua);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-outline-2:hover {
+            background-color: var(--azul-agua);
+            color: var(--branco);
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .btn-outline-2 a {
+            color: inherit;
+        }
+
+        .btn-danger {
+            background-color: #e74c3c;
+            color: var(--branco);
+            border-color: #e74c3c;
+        }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
+            border-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        /* ===== SECTION TITLE ===== */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--verde-escuro);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--verde-limao);
+            border-radius: 2px;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background-color: var(--branco);
+            box-shadow: var(--sombra);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--verde-escuro);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            color: var(--verde-limao);
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--cinza-escuro);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--verde-limao);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--verde-escuro);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-buttons .btn {
+            padding: 8px 20px;
+            font-size: 13px;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--verde-escuro);
+            padding: 5px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, #f0f7e8 0%, #e8f0fe 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(124,181,24,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--verde-escuro);
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--cinza-escuro);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+/* ===== ABOUT ===== */
+        .about {
+            padding: 80px 0;
+            background-color: var(--branco);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--cinza-escuro);
+        }
+
+        .about-text .btn {
+            margin-top: 10px;
+        }
+
+        .about-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--sombra);
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .about-image img:hover {
+            transform: scale(1.02);
+            box-shadow: var(--sombra-hover);
+        }
+
+        /* ===== COURSE ===== */
+        .course-preview {
+            padding: 80px 0;
+            background-color: var(--cinza-claro);
+            text-align: center;
+        }
+
+        .course-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .course-card {
+            background: var(--branco);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: var(--transition);
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .course-card-content {
+            padding: 25px;
+            text-align: left;
+        }
+
+        .course-card-content h3 {
+            color: var(--verde-escuro);
+            margin-bottom: 10px;
+        }
+
+        .course-card-content p {
+            color: var(--cinza-escuro);
+        }
+
+        /* ===== POSTS ===== */
+        .posts {
+            padding: 80px 0;
+            background-color: var(--branco);
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .post-card {
+            background: var(--branco);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: var(--transition);
+            border: 1px solid var(--cinza-medio);
+            cursor: pointer;
+        }
+
+        .post-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .post-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .post-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .post-card-content {
+            padding: 25px;
+        }
+
+        .post-card-content h3 {
+            color: var(--verde-escuro);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: var(--cinza-escuro);
+            margin-bottom: 12px;
+        }
+
+        .post-meta i {
+            margin-right: 4px;
+        }
+
+        .post-card-content p {
+            color: var(--cinza-escuro);
+            margin-bottom: 15px;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--cinza-claro);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            background: var(--branco);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--sombra);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--verde-limao);
+            margin-top: 4px;
+        }
+
+        .contact-item h3 {
+            font-size: 0.9rem;
+            color: var(--verde-escuro);
+            margin-bottom: 4px;
+        }
+
+        .contact-item p {
+            font-size: 0.9rem;
+            color: var(--cinza-escuro);
+        }
+
+        .contact-form {
+            background: var(--branco);
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--sombra);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--verde-escuro);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--cinza-medio);
+            border-radius: 8px;
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--verde-limao);
+            box-shadow: 0 0 0 4px rgba(124,181,24,0.1);
+        }
+
+        .form-control.error {
+            border-color: #e74c3c;
+        }
+
+        .form-control.success {
+            border-color: var(--verde-limao);
+        }
+
+        .form-error {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .form-error.show {
+            display: block;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ===== NEWSLETTER ===== */
+        .newsletter {
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--verde-escuro), var(--azul-escuro));
+            color: var(--branco);
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 12px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(124,181,24,0.3);
+        }
+
+        .newsletter-form .btn {
+            padding: 14px 30px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--preto);
+            color: var(--branco);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h2 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-column h2 i {
+            color: var(--verde-limao);
+        }
+
+        .footer-column p {
+            opacity: 0.8;
+            margin: 10px 0 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+            color: var(--branco);
+        }
+
+        .social-links a:hover {
+            background: var(--verde-limao);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h3 {
+            color: var(--verde-limao);
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--verde-limao);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+            backdrop-filter: blur(4px);
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--branco);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-content.modal-lg {
+            max-width: 800px;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-content h2 {
+            color: var(--verde-escuro);
+            margin-bottom: 20px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--cinza-escuro);
+            transition: var(--transition);
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: var(--preto);
+            transform: rotate(90deg);
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .modal-buttons .btn {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        /* ===== POST MODAL ===== */
+        .post-modal-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .post-modal-meta {
+            display: flex;
+            gap: 20px;
+            color: var(--cinza-escuro);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .post-modal-meta i {
+            margin-right: 5px;
+        }
+
+        .post-modal-content {
+            line-height: 1.8;
+            color: var(--cinza-escuro);
+        }
+
+        .post-modal-content p {
+            margin-bottom: 15px;
+        }
+
+        .post-modal-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--cinza-medio);
+        }
+
+        .post-modal-tags span {
+            background: var(--cinza-claro);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--cinza-escuro);
+        }
+
+        .post-modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--cinza-medio);
+            flex-wrap: wrap;
+        }
+
+        .post-modal-actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--cinza-escuro);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+
+        .post-modal-actions button:hover {
+            background: var(--cinza-claro);
+            color: var(--verde-escuro);
+        }
+
+        .post-modal-actions button.liked {
+            color: #e74c3c;
+        }
+
+        .post-modal-actions button.liked i {
+            animation: heartBeat 0.3s ease;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+/* ===== COOKIE CONSENT ===== */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--preto);
+            color: var(--branco);
+            padding: 20px;
+            z-index: 1500;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .cookie-consent.show {
+            transform: translateY(0);
+        }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .cookie-text a {
+            color: var(--verde-limao);
+            text-decoration: underline;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .cookie-buttons .btn {
+            padding: 8px 20px;
+            font-size: 13px;
+        }
+
+        /* ===== SCROLL TO TOP ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--verde-limao);
+            color: var(--branco);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: var(--sombra);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            z-index: 100;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-top:hover {
+            background: var(--verde-escuro);
+            transform: translateY(-4px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        /* ===== LOADING SPINNER ===== */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top: 3px solid var(--branco);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ===== TOAST NOTIFICATION ===== */
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            padding: 15px 25px;
+            border-radius: 8px;
+            color: var(--branco);
+            font-weight: 500;
+            box-shadow: var(--sombra-hover);
+            z-index: 3000;
+            transform: translateX(120%);
+            transition: transform 0.4s ease;
+            max-width: 350px;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            background: var(--verde-limao);
+        }
+
+        .toast.error {
+            background: #e74c3c;
+        }
+
+        .toast.info {
+            background: var(--azul-agua);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--branco);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: var(--sombra);
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+            }
+
+            .nav-links.active {
+                display: flex;
+                animation: slideDown 0.3s ease;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* ===== MOSTRAR BOTÕES NO MENU MOBILE ===== */
+            .nav-buttons {
+                display: none;
+            }
+
+            /* Botões de login/cadastro no menu mobile */
+            .nav-links .mobile-nav-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+                padding-top: 15px;
+                border-top: 1px solid var(--cinza-medio);
+                width: 100%;
+            }
+
+            .nav-links .mobile-nav-buttons .btn {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                padding: 0 20px;
+            }
+
+            .newsletter-form input {
+                border-radius: 50px;
+            }
+
+            .modal-content {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+
+            .modal-content.modal-lg {
+                padding: 20px 15px;
+            }
+
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .course-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .post-modal-image {
+                height: 200px;
+            }
+
+            .post-modal-actions {
+                flex-wrap: wrap;
+            }
+
+            .post-modal-meta {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .toast {
+                bottom: 80px;
+                right: 20px;
+                left: 20px;
+                max-width: none;
+            }
+
+            .modal-buttons .btn {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+
+            .modal-content {
+                padding: 20px 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
+<!-- ===== HEADER ===== -->
+    <header id="header">
         <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">
-                    <i class="fas fa-leaf"></i> HSALink
+            <nav class="navbar" role="navigation" aria-label="Navegação principal">
+                <a href="#hero" class="logo" aria-label="HSALink - Página inicial">
+                    <i class="fas fa-leaf" aria-hidden="true"></i> HSALink
                 </a>
-                <ul class="nav-links">
-                    <li><a href="#hero">Início</a></li>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#course">Curso</a></li>
-                    <li><a href="#posts">Posts</a></li>
-                    <li><a href="#contact">Contato</a></li>
+                <ul class="nav-links" id="navLinks" role="menubar">
+                    <li role="none"><a href="#hero" role="menuitem">Início</a></li>
+                    <li role="none"><a href="#about" role="menuitem">Sobre</a></li>
+                    <li role="none"><a href="#course" role="menuitem">Curso</a></li>
+                    <li role="none"><a href="#posts" role="menuitem">Posts</a></li>
+                    <li role="none"><a href="#contact" role="menuitem">Contato</a></li>
+                    <!-- ===== BOTÕES MOBILE DENTRO DO MENU ===== -->
+                    <li role="none" class="mobile-nav-buttons">
+                        <button class="btn btn-outline" id="loginBtnMobile" aria-label="Abrir login">Entrar</button>
+                        <button class="btn btn-primary" id="registerBtnMobile" aria-label="Abrir cadastro">Cadastrar</button>
+                    </li>
                 </ul>
                 <div class="nav-buttons">
-                    <button class="btn btn-outline" id="loginBtn">Entrar</button>
-                    <button class="btn btn-primary" id="registerBtn">Cadastrar</button>
+                    <button class="btn btn-outline" id="loginBtn" aria-label="Abrir login">Entrar</button>
+                    <button class="btn btn-primary" id="registerBtn" aria-label="Abrir cadastro">Cadastrar</button>
                 </div>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <button class="mobile-menu" id="mobileMenuBtn" aria-label="Abrir menu" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="container">
-            <h1>Conectando o Futuro do Saneamento Ambiental</h1>
-            <p>Uma plataforma digital que une blog ambiental, rede social acadêmica e centro de notícias sobre Hidráulica e Saneamento Ambiental.</p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary" id="exploreBtn">Explorar Conteúdo</button>
-                <button class="btn btn-outline" id="joinBtn">Junte-se à Comunidade</button>
+    <!-- ===== HERO ===== -->
+    <main>
+        <section class="hero" id="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <h1 id="hero-title">Conectando o Futuro do Saneamento Ambiental</h1>
+                <p>Uma plataforma digital que une blog ambiental, rede social acadêmica e centro de notícias sobre Hidráulica e Saneamento Ambiental.</p>
+                <div class="hero-buttons">
+                    <a href="#posts" class="btn btn-primary">Explorar Conteúdo</a>
+                    <a href="#contact" class="btn btn-outline">Junte-se à Comunidade</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>Sobre o HSALink</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>O HSALink surgiu da ideia de criar um espaço digital para centralizar conteúdos e interações sobre o curso de Hidráulica e Saneamento Ambiental (HSA) da Fatec-SP e de áreas correlatas.</p>
-                    <p>A proposta é unir notícias ambientais, artigos técnicos, projetos acadêmicos e rede de interação entre usuários, tudo dentro de um mesmo ecossistema.</p>
-                    <p>Conectamos estudantes, profissionais e entusiastas da área, promovendo a troca de conhecimento, ideias e soluções sustentáveis para um futuro mais limpo e equilibrado.</p>
-                    <button class="btn btn-primary">Saiba Mais</button>
+        <!-- ===== ABOUT ===== -->
+        <section class="about" id="about" aria-labelledby="about-title">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="about-title">Sobre o HSALink</h2>
                 </div>
-                <div class="about-image">
-                    <img src="assets/img/HSALinkGroup.jpg" alt="Sobre o HSALink">
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>O HSALink surgiu da ideia de criar um espaço digital para centralizar conteúdos e interações sobre o curso de <strong>Hidráulica e Saneamento Ambiental (HSA)</strong> da Fatec-SP e de áreas correlatas.</p>
+                        <p>A proposta é unir notícias ambientais, artigos técnicos, projetos acadêmicos e rede de interação entre usuários, tudo dentro de um mesmo ecossistema.</p>
+                        <p>Conectamos estudantes, profissionais e entusiastas da área, promovendo a troca de conhecimento, ideias e soluções sustentáveis para um futuro mais limpo e equilibrado.</p>
+                        <a href="#contact" class="btn btn-primary">Saiba Mais</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/img/HSALinkGroup.jpg" alt="Equipe do HSALink reunida em evento sobre saneamento ambiental" loading="lazy">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Course Preview Section -->
-    <section class="course-preview" id="course">
-        <div class="container">
-            <div class="section-title">
-                <h2>Conheça o Curso de HSA</h2>
+        <!-- ===== COURSE ===== -->
+        <section class="course-preview" id="course" aria-labelledby="course-title">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="course-title">Conheça o Curso de HSA</h2>
+                </div>
+                <div class="course-cards">
+                    <article class="course-card">
+                        <img src="https://3.bp.blogspot.com/-OVerAbKBtws/WMqj9wmg8RI/AAAAAAAAA34/iipvQeimGeIKH8V-YHH96rxJqJPaAjhiwCLcB/s750/Hidraulica.jpg" alt="Ilustração de sistema hidráulico com tubulações e água" loading="lazy">
+                        <div class="course-card-content">
+                            <h3>Hidráulica</h3>
+                            <p>Estudo do comportamento dos fluidos em repouso e em movimento, com aplicações em sistemas de abastecimento de água e drenagem.</p>
+                        </div>
+                    </article>
+                    <article class="course-card">
+                        <img src="https://biotecs.com.br/uploads/pagina/elemento/campo/2023/06/SySbHMdUOdSaNP0z/lixiviado-1.jpg" alt="Estação de tratamento de água e esgoto" loading="lazy">
+                        <div class="course-card-content">
+                            <h3>Saneamento Ambiental</h3>
+                            <p>Desenvolvimento de soluções para tratamento de água, esgoto e resíduos sólidos, promovendo saúde pública e sustentabilidade.</p>
+                        </div>
+                    </article>
+                    <article class="course-card">
+                        <img src="https://www2.pasehidro.com.br/wp-content/uploads/2022/10/1-1.jpg" alt="Vista aérea de represa e recursos hídricos" loading="lazy">
+                        <div class="course-card-content">
+                            <h3>Recursos Hídricos</h3>
+                            <p>Gestão integrada de bacias hidrográficas, planejamento e conservação dos recursos hídricos para uso sustentável.</p>
+                        </div>
+                    </article>
+                </div>
+                <a href="https://www.cps.sp.gov.br/cursos-fatec/hidraulica-e-saneamento-ambiental/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-2">Saiba Mais</a>
             </div>
-            <div class="course-cards">
-                <div class="course-card">
-                    <img src="https://3.bp.blogspot.com/-OVerAbKBtws/WMqj9wmg8RI/AAAAAAAAA34/iipvQeimGeIKH8V-YHH96rxJqJPaAjhiwCLcB/s750/Hidraulica.jpg" alt="Hidráulica">
-                    <div class="course-card-content">
-                        <h3>Hidráulica</h3>
-                        <p>Estudo do comportamento dos fluidos em repouso e em movimento, com aplicações em sistemas de abastecimento de água e drenagem.</p>
-                    </div>
-                </div>
-                <div class="course-card">
-                    <img src="https://biotecs.com.br/uploads/pagina/elemento/campo/2023/06/SySbHMdUOdSaNP0z/lixiviado-1.jpg" alt="Saneamento Ambiental">
-                    <div class="course-card-content">
-                        <h3>Saneamento Ambiental</h3>
-                        <p>Desenvolvimento de soluções para tratamento de água, esgoto e resíduos sólidos, promovendo saúde pública e sustentabilidade.</p>
-                    </div>
-                </div>
-                <div class="course-card">
-                    <img src="https://www2.pasehidro.com.br/wp-content/uploads/2022/10/1-1.jpg" alt="Recursos Hídricos">
-                    <div class="course-card-content">
-                        <h3>Recursos Hídricos</h3>
-                        <p>Gestão integrada de bacias hidrográficas, planejamento e conservação dos recursos hídricos para uso sustentável.</p>
-                    </div>
-                </div>
-            </div>
-            <button class="btn btn-outline-2"><a href="https://www.cps.sp.gov.br/cursos-fatec/hidraulica-e-saneamento-ambiental/">Saiba Mais</a></button>
-        </div>
-    </section>
+        </section>
 
-    <!-- Posts Section -->
-    <section class="posts" id="posts">
-        <div class="container">
-            <div class="section-title">
-                <h2>Posts em Destaque</h2>
+        <!-- ===== POSTS ===== -->
+        <section class="posts" id="posts" aria-labelledby="posts-title">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="posts-title">Posts em Destaque</h2>
+                </div>
+                <div class="posts-grid">
+                    <article class="post-card" data-post="1">
+                        <img src="https://www.infoescola.com/wp-content/uploads/2016/03/tratamento-agua.jpg" alt="Estação de tratamento de água com tanques de decantação" loading="lazy">
+                        <div class="post-card-content">
+                            <h3>Tecnologias Sustentáveis no Tratamento de Água</h3>
+                            <div class="post-meta">
+                                <span><i class="far fa-calendar" aria-hidden="true"></i> 15 Jun, 2023</span>
+                                <span><i class="far fa-user" aria-hidden="true"></i> Maria Silva</span>
+                            </div>
+                            <p>Exploramos as mais recentes inovações em tecnologias sustentáveis para o tratamento de água...</p>
+                            <button class="btn btn-outline read-more" data-post="1">Ler Mais</button>
+                        </div>
+                    </article>
+                    <article class="post-card" data-post="2">
+                        <img src="https://sanetrancombra551d.zapwp.com/q:i/r:0/wp:0/w:1/u:https://sanetran.com.br/wp-content/uploads/2024/09/4036-2.jpg" alt="Central de reciclagem e gestão de resíduos sólidos urbanos" loading="lazy">
+                        <div class="post-card-content">
+                            <h3>Gestão Inteligente de Resíduos Sólidos Urbanos</h3>
+                            <div class="post-meta">
+                                <span><i class="far fa-calendar" aria-hidden="true"></i> 10 Jun, 2023</span>
+                                <span><i class="far fa-user" aria-hidden="true"></i> João Santos</span>
+                            </div>
+                            <p>Como as cidades podem implementar sistemas inteligentes de gestão de resíduos para reduzir custos...</p>
+                            <button class="btn btn-outline read-more" data-post="2">Ler Mais</button>
+                        </div>
+                    </article>
+                    <article class="post-card" data-post="3">
+                        <img src="https://static.wixstatic.com/media/62e464_26fe0c14aa0843829782bbdb5bfd33a3~mv2.jpeg/v1/fill/w_1000,h_563,al_c,q_85,usm_0.66_1.00_0.01/62e464_26fe0c14aa0843829782bbdb5bfd33a3~mv2.jpeg" alt="Efeitos das mudanças climáticas em recursos hídricos" loading="lazy">
+                        <div class="post-card-content">
+                            <h3>Impactos das Mudanças Climáticas nos Recursos Hídricos</h3>
+                            <div class="post-meta">
+                                <span><i class="far fa-calendar" aria-hidden="true"></i> 5 Jun, 2023</span>
+                                <span><i class="far fa-user" aria-hidden="true"></i> Ana Costa</span>
+                            </div>
+                            <p>Análise dos efeitos das mudanças climáticas na disponibilidade e qualidade dos recursos hídricos...</p>
+                            <button class="btn btn-outline read-more" data-post="3">Ler Mais</button>
+                        </div>
+                    </article>
+                </div>
             </div>
-            <div class="posts-grid">
-                <div class="post-card">
-                    <img src="https://www.infoescola.com/wp-content/uploads/2016/03/tratamento-agua.jpg" alt="Tecnologias Sustentáveis">
-                    <div class="post-card-content">
-                        <h3>Tecnologias Sustentáveis no Tratamento de Água</h3>
-                        <div class="post-meta">
-                            <i class="far fa-calendar"></i> 15 Jun, 2023
-                            <i class="far fa-user"></i> Maria Silva
-                        </div>
-                        <p>Exploramos as mais recentes inovações em tecnologias sustentáveis para o tratamento de água, com foco em eficiência energética e redução de impactos ambientais.</p>
-                        <button class="btn btn-outline">Ler Mais</button>
-                    </div>
-                </div>
-                <div class="post-card">
-                    <img src="https://sanetrancombra551d.zapwp.com/q:i/r:0/wp:0/w:1/u:https://sanetran.com.br/wp-content/uploads/2024/09/4036-2.jpg" alt="Gestão de Resíduos">
-                    <div class="post-card-content">
-                        <h3>Gestão Inteligente de Resíduos Sólidos Urbanos</h3>
-                        <div class="post-meta">
-                            <i class="far fa-calendar"></i> 10 Jun, 2023
-                            <i class="far fa-user"></i> João Santos
-                        </div>
-                        <p>Como as cidades podem implementar sistemas inteligentes de gestão de resíduos para reduzir custos, aumentar a reciclagem e melhorar a qualidade de vida urbana.</p>
-                        <button class="btn btn-outline">Ler Mais</button>
-                    </div>
-                </div>
-                <div class="post-card">
-                    <img src="https://static.wixstatic.com/media/62e464_26fe0c14aa0843829782bbdb5bfd33a3~mv2.jpeg/v1/fill/w_1000,h_563,al_c,q_85,usm_0.66_1.00_0.01/62e464_26fe0c14aa0843829782bbdb5bfd33a3~mv2.jpeg" alt="Mudanças Climáticas">
-                    <div class="post-card-content">
-                        <h3>Impactos das Mudanças Climáticas nos Recursos Hídricos</h3>
-                        <div class="post-meta">
-                            <i class="far fa-calendar"></i> 5 Jun, 2023
-                            <i class="far fa-user"></i> Ana Costa
-                        </div>
-                        <p>Análise dos efeitos das mudanças climáticas na disponibilidade e qualidade dos recursos hídricos e estratégias de adaptação para garantir a segurança hídrica.</p>
-                        <button class="btn btn-outline">Ler Mais</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Entre em Contato</h2>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Endereço</h3>
-                            <p>Fatec São Paulo<br>Av. Tiradentes, 615 - Bom Retiro<br>São Paulo - SP, 01102-010</p>
+        <!-- ===== CONTACT ===== -->
+        <section class="contact" id="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="contact-title">Entre em Contato</h2>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <div>
+                                <h3>Endereço</h3>
+                                <p>Fatec São Paulo<br>Av. Tiradentes, 615 - Bom Retiro<br>São Paulo - SP, 01102-010</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <div>
+                                <h3>Telefone</h3>
+                                <p><a href="tel:+551133225800" aria-label="Ligar para (11) 3322-5800">(11) 3322-5800</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <div>
+                                <h3>E-mail</h3>
+                                <p><a href="mailto:contato@hsalink.com.br" aria-label="Enviar e-mail para contato@hsalink.com.br">contato@hsalink.com.br</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            <div>
+                                <h3>Horário de Funcionamento</h3>
+                                <p>Segunda a Sexta: 9h às 18h</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Telefone</h3>
-                            <p>(11) 3322-5800</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>E-mail</h3>
-                            <p>contato@hsalink.com.br</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h3>Horário de Funcionamento</h3>
-                            <p>Segunda a Sexta: 9h às 18h</p>
-                        </div>
+                    <div class="contact-form">
+                        <form id="contactForm" novalidate aria-label="Formulário de contato">
+                            <div class="form-group">
+                                <label for="name">Nome <span aria-hidden="true">*</span></label>
+                                <input type="text" id="name" class="form-control" placeholder="Seu nome completo" required aria-required="true">
+                                <span class="form-error" id="nameError">Por favor, informe seu nome.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail <span aria-hidden="true">*</span></label>
+                                <input type="email" id="email" class="form-control" placeholder="seu@email.com" required aria-required="true">
+                                <span class="form-error" id="emailError">Por favor, informe um e-mail válido.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Assunto <span aria-hidden="true">*</span></label>
+                                <input type="text" id="subject" class="form-control" placeholder="Assunto da mensagem" required aria-required="true">
+                                <span class="form-error" id="subjectError">Por favor, informe o assunto.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Mensagem <span aria-hidden="true">*</span></label>
+                                <textarea id="message" class="form-control" placeholder="Sua mensagem..." required aria-required="true" rows="5"></textarea>
+                                <span class="form-error" id="messageError">Por favor, escreva sua mensagem.</span>
+                                <small style="display:block;margin-top:4px;color:var(--cinza-escuro);font-size:0.8rem;" id="charCount">0 caracteres</small>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="submitContact">Enviar Mensagem</button>
+                        </form>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Nome</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Assunto</label>
-                            <input type="text" id="subject" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensagem</label>
-                            <textarea id="message" class="form-control" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                    </form>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <div class="container">
-            <h2>Inscreva-se na nossa Newsletter</h2>
-            <p>Receba as últimas notícias, artigos e atualizações sobre Hidráulica e Saneamento Ambiental diretamente no seu e-mail.</p>
-            <form class="newsletter-form" id="newsletterForm">
-                <input type="email" placeholder="Seu melhor e-mail" required>
-                <button type="submit" class="btn btn-primary">Inscrever</button>
-            </form>
-        </div>
-    </section>
+        <!-- ===== NEWSLETTER ===== -->
+        <section class="newsletter" aria-labelledby="newsletter-title">
+            <div class="container">
+                <h2 id="newsletter-title">Inscreva-se na nossa Newsletter</h2>
+                <p>Receba as últimas notícias, artigos e atualizações sobre Hidráulica e Saneamento Ambiental diretamente no seu e-mail.</p>
+                <form class="newsletter-form" id="newsletterForm" novalidate>
+                    <input type="email" id="newsletterEmail" placeholder="Seu melhor e-mail" required aria-required="true" aria-label="E-mail para newsletter">
+                    <button type="submit" class="btn btn-primary">Inscrever</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer>
+    <!-- ===== FOOTER ===== -->
+    <footer role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h2><i class="fas fa-leaf"></i>  HSALink</h2>
+                    <h2><i class="fas fa-leaf" aria-hidden="true"></i> HSALink</h2>
                     <p>Conectando o futuro do saneamento ambiental através de conhecimento, inovação e comunidade.</p>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/hidraulica.fatecsp/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/company/hidr%C3%A1ulica-saneamento-ambiental/posts/?feedView=all"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/hidraulica.fatecsp/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/hidr%C3%A1ulica-saneamento-ambiental/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter/X">
+                            <i class="fab fa-x-twitter" aria-hidden="true"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -259,19 +1467,21 @@
         </div>
     </footer>
 
-    <!-- Login Modal -->
-    <div class="modal" id="loginModal">
+    <!-- ===== MODAL: LOGIN ===== -->
+    <div class="modal" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Entrar na Plataforma</h2>
-            <form id="loginForm">
+            <button class="close-modal" aria-label="Fechar login">&times;</button>
+            <h2 id="loginTitle">Entrar na Plataforma</h2>
+            <form id="loginForm" novalidate>
                 <div class="form-group">
                     <label for="loginEmail">E-mail</label>
-                    <input type="email" id="loginEmail" class="form-control" required>
+                    <input type="email" id="loginEmail" class="form-control" placeholder="seu@email.com" required>
+                    <span class="form-error" id="loginEmailError">Informe seu e-mail.</span>
                 </div>
                 <div class="form-group">
                     <label for="loginPassword">Senha</label>
-                    <input type="password" id="loginPassword" class="form-control" required>
+                    <input type="password" id="loginPassword" class="form-control" placeholder="Sua senha" required minlength="6">
+                    <span class="form-error" id="loginPasswordError">A senha deve ter pelo menos 6 caracteres.</span>
                 </div>
                 <div class="modal-buttons">
                     <button type="submit" class="btn btn-primary">Entrar</button>
@@ -281,27 +1491,31 @@
         </div>
     </div>
 
-    <!-- Register Modal -->
-    <div class="modal" id="registerModal">
+    <!-- ===== MODAL: REGISTER ===== -->
+    <div class="modal" id="registerModal" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Criar uma Conta</h2>
-            <form id="registerForm">
+            <button class="close-modal" aria-label="Fechar cadastro">&times;</button>
+            <h2 id="registerTitle">Criar uma Conta</h2>
+            <form id="registerForm" novalidate>
                 <div class="form-group">
                     <label for="registerName">Nome Completo</label>
-                    <input type="text" id="registerName" class="form-control" required>
+                    <input type="text" id="registerName" class="form-control" placeholder="Seu nome completo" required>
+                    <span class="form-error" id="registerNameError">Informe seu nome completo.</span>
                 </div>
                 <div class="form-group">
                     <label for="registerEmail">E-mail</label>
-                    <input type="email" id="registerEmail" class="form-control" required>
+                    <input type="email" id="registerEmail" class="form-control" placeholder="seu@email.com" required>
+                    <span class="form-error" id="registerEmailError">Informe um e-mail válido.</span>
                 </div>
                 <div class="form-group">
                     <label for="registerPassword">Senha</label>
-                    <input type="password" id="registerPassword" class="form-control" required>
+                    <input type="password" id="registerPassword" class="form-control" placeholder="Mínimo 6 caracteres" required minlength="6">
+                    <span class="form-error" id="registerPasswordError">A senha deve ter pelo menos 6 caracteres.</span>
                 </div>
                 <div class="form-group">
                     <label for="registerConfirmPassword">Confirmar Senha</label>
-                    <input type="password" id="registerConfirmPassword" class="form-control" required>
+                    <input type="password" id="registerConfirmPassword" class="form-control" placeholder="Confirme sua senha" required>
+                    <span class="form-error" id="registerConfirmError">As senhas não coincidem.</span>
                 </div>
                 <div class="modal-buttons">
                     <button type="submit" class="btn btn-primary">Criar Conta</button>
@@ -311,23 +1525,78 @@
         </div>
     </div>
 
-    <!-- Thank You Modal -->
-    <div class="modal" id="thankYouModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Obrigado!</h2>
-            <p id="thankYouMessage">Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.</p>
-            <div class="modal-buttons">
+    <!-- ===== MODAL: POST DETAIL ===== -->
+    <div class="modal" id="postModal" role="dialog" aria-modal="true" aria-labelledby="postModalTitle">
+        <div class="modal-content modal-lg">
+            <button class="close-modal" aria-label="Fechar post">&times;</button>
+            <img id="postModalImage" class="post-modal-image" src="" alt="">
+            <h2 id="postModalTitle">Título do Post</h2>
+            <div class="post-modal-meta">
+                <span><i class="far fa-calendar" aria-hidden="true"></i> <span id="postModalDate">15 Jun, 2023</span></span>
+                <span><i class="far fa-user" aria-hidden="true"></i> <span id="postModalAuthor">Maria Silva</span></span>
+                <span><i class="far fa-clock" aria-hidden="true"></i> <span id="postModalReadTime">5 min de leitura</span></span>
+            </div>
+            <div class="post-modal-content" id="postModalContent">
+                <p>Conteúdo completo do post será exibido aqui...</p>
+            </div>
+            <div class="post-modal-tags" id="postModalTags">
+                <span>#Sustentabilidade</span>
+                <span>#Água</span>
+                <span>#Tecnologia</span>
+            </div>
+            <div class="post-modal-actions">
+                <button id="likeBtn">
+                    <i class="far fa-heart" aria-hidden="true"></i> Curtir (<span id="likeCount">42</span>)
+                </button>
+                <button id="shareBtn">
+                    <i class="fas fa-share-alt" aria-hidden="true"></i> Compartilhar
+                </button>
+                <button id="bookmarkBtn">
+                    <i class="far fa-bookmark" aria-hidden="true"></i> Salvar
+                </button>
+            </div>
+            <div class="modal-buttons" style="margin-top:20px;">
+                <button class="btn btn-outline close-post-modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL: THANK YOU (Contact) ===== -->
+    <div class="modal" id="thankYouModal" role="dialog" aria-modal="true" aria-labelledby="thankYouTitle">
+        <div class="modal-content" style="text-align:center;">
+            <button class="close-modal" aria-label="Fechar">&times;</button>
+            <div style="font-size:4rem;margin-bottom:20px;">🌱</div>
+            <h2 id="thankYouTitle">Mensagem Enviada!</h2>
+            <p id="thankYouMessage" style="margin:20px 0;color:var(--cinza-escuro);">
+                Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.
+            </p>
+            <div class="modal-buttons" style="justify-content:center;">
                 <button class="btn btn-primary" id="closeThankYou">Fechar</button>
             </div>
         </div>
     </div>
 
-    <!-- Cookie Consent -->
-    <div class="cookie-consent" id="cookieConsent">
+    <!-- ===== MODAL: THANK YOU (Newsletter) ===== -->
+    <div class="modal" id="newsletterThankYouModal" role="dialog" aria-modal="true" aria-labelledby="newsletterThankYouTitle">
+        <div class="modal-content" style="text-align:center;">
+            <button class="close-modal" aria-label="Fechar">&times;</button>
+            <div style="font-size:4rem;margin-bottom:20px;">📬</div>
+            <h2 id="newsletterThankYouTitle">Inscrição Confirmada!</h2>
+            <p style="margin:20px 0;color:var(--cinza-escuro);">
+                Você está inscrito na nossa newsletter! 📧<br>
+                Fique de olho no seu e-mail para receber as novidades.
+            </p>
+            <div class="modal-buttons" style="justify-content:center;">
+                <button class="btn btn-primary" id="closeNewsletterThankYou">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== COOKIE CONSENT ===== -->
+    <div class="cookie-consent" id="cookieConsent" role="alert">
         <div class="cookie-content">
             <div class="cookie-text">
-                <p>Este site utiliza cookies para melhorar sua experiência de navegação. Ao continuar navegando, você concorda com nossa <a href="#" style="color: var(--verde-limao);">Política de Cookies</a>.</p>
+                <p>Este site utiliza cookies para melhorar sua experiência de navegação. Ao continuar navegando, você concorda com nossa <a href="#" aria-label="Política de Cookies">Política de Cookies</a>.</p>
             </div>
             <div class="cookie-buttons">
                 <button class="btn btn-primary" id="acceptCookies">Aceitar</button>
@@ -336,6 +1605,533 @@
         </div>
     </div>
 
-    <script src="assets/js/script.js"></script>
+    <!-- ===== TOAST NOTIFICATION ===== -->
+    <div class="toast" id="toast" role="alert"></div>
+
+    <!-- ===== SCROLL TO TOP ===== -->
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+  <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            // =============================================
+            // 1. MOBILE MENU
+            // =============================================
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            let isMenuOpen = false;
+
+            mobileMenuBtn.addEventListener('click', function() {
+                isMenuOpen = !isMenuOpen;
+                navLinks.classList.toggle('active');
+                this.setAttribute('aria-expanded', isMenuOpen);
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+
+            // Fechar menu ao clicar em um link
+            navLinks.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    isMenuOpen = false;
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                });
+            });
+
+            // =============================================
+            // 2. BOTÕES DE LOGIN/CADASTRO (Desktop e Mobile)
+            // =============================================
+            const loginModal = document.getElementById('loginModal');
+            const registerModal = document.getElementById('registerModal');
+
+            // Botões Desktop
+            const loginBtn = document.getElementById('loginBtn');
+            const registerBtn = document.getElementById('registerBtn');
+
+            // Botões Mobile
+            const loginBtnMobile = document.getElementById('loginBtnMobile');
+            const registerBtnMobile = document.getElementById('registerBtnMobile');
+
+            function openModal(modal) {
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeModal(modal) {
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            // Eventos Desktop
+            loginBtn.addEventListener('click', () => openModal(loginModal));
+            registerBtn.addEventListener('click', () => openModal(registerModal));
+
+            // Eventos Mobile
+            loginBtnMobile.addEventListener('click', () => {
+                openModal(loginModal);
+                // Fechar menu mobile
+                navLinks.classList.remove('active');
+                isMenuOpen = false;
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+
+            registerBtnMobile.addEventListener('click', () => {
+                openModal(registerModal);
+                // Fechar menu mobile
+                navLinks.classList.remove('active');
+                isMenuOpen = false;
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+
+            // =============================================
+            // 3. HEADER SCROLL EFFECT
+            // =============================================
+            const header = document.getElementById('header');
+
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // =============================================
+            // 4. TOAST NOTIFICATION
+            // =============================================
+            function showToast(message, type = 'success') {
+                const toast = document.getElementById('toast');
+                toast.textContent = message;
+                toast.className = `toast ${type}`;
+                setTimeout(() => toast.classList.add('show'), 10);
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 4000);
+            }
+
+            // =============================================
+            // 5. MODALS - Generic Functions
+            // =============================================
+            // Close all modals with ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.modal.active').forEach(modal => {
+                        closeModal(modal);
+                    });
+                }
+            });
+
+            // Close modal on overlay click
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeModal(this);
+                    }
+                });
+            });
+
+            // Close buttons
+            document.querySelectorAll('.close-modal').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const modal = this.closest('.modal');
+                    closeModal(modal);
+                });
+            });
+
+            // =============================================
+            // 6. LOGIN / REGISTER FORMS
+            // =============================================
+            document.getElementById('switchToRegister').addEventListener('click', () => {
+                closeModal(loginModal);
+                setTimeout(() => openModal(registerModal), 300);
+            });
+
+            document.getElementById('switchToLogin').addEventListener('click', () => {
+                closeModal(registerModal);
+                setTimeout(() => openModal(loginModal), 300);
+            });
+
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('loginEmail').value.trim();
+                const password = document.getElementById('loginPassword').value.trim();
+
+                if (email && password.length >= 6) {
+                    showToast('🔐 Login realizado com sucesso!', 'success');
+                    closeModal(loginModal);
+                    this.reset();
+                } else {
+                    showToast('⚠️ Preencha todos os campos corretamente.', 'error');
+                }
+            });
+
+            document.getElementById('registerForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('registerName').value.trim();
+                const email = document.getElementById('registerEmail').value.trim();
+                const password = document.getElementById('registerPassword').value;
+                const confirm = document.getElementById('registerConfirmPassword').value;
+
+                if (name && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && password.length >= 6 && password === confirm) {
+                    showToast('🎉 Conta criada com sucesso!', 'success');
+                    closeModal(registerModal);
+                    this.reset();
+                } else {
+                    showToast('⚠️ Verifique todos os campos.', 'error');
+                }
+            });
+
+// =============================================
+            // 7. POST MODAL
+            // =============================================
+            const postModal = document.getElementById('postModal');
+            const postData = {
+                1: {
+                    title: 'Tecnologias Sustentáveis no Tratamento de Água',
+                    date: '15 Jun, 2023',
+                    author: 'Maria Silva',
+                    readTime: '5 min de leitura',
+                    image: 'https://www.infoescola.com/wp-content/uploads/2016/03/tratamento-agua.jpg',
+                    content: `
+                        <p>O tratamento de água é um dos pilares fundamentais para a saúde pública e a preservação ambiental. Nos últimos anos, tecnologias inovadoras têm surgido para tornar esse processo mais eficiente, sustentável e acessível.</p>
+                        <p><strong>1. Filtros de Membrana Avançados</strong><br>
+                        As membranas de ultrafiltração e nanofiltração estão revolucionando o tratamento de água, permitindo a remoção de partículas microscópicas, vírus e bactérias sem o uso excessivo de produtos químicos.</p>
+                        <p><strong>2. Sistemas de Oxidação Avançada</strong><br>
+                        Utilizando ozônio, peróxido de hidrogênio e luz UV, esses sistemas degradam poluentes orgânicos persistentes que os métodos tradicionais não conseguem eliminar.</p>
+                        <p><strong>3. Dessalinização com Energia Solar</strong><br>
+                        A combinação de dessalinização com energia solar está tornando possível a produção de água potável em regiões áridas, reduzindo drasticamente o consumo de energia.</p>
+                        <p>Estas tecnologias representam um avanço significativo para garantir o acesso à água de qualidade para todos, alinhando-se aos Objetivos de Desenvolvimento Sustentável da ONU.</p>
+                    `,
+                    tags: ['#Sustentabilidade', '#Água', '#Tecnologia', '#Inovação'],
+                    likes: 42
+                },
+                2: {
+                    title: 'Gestão Inteligente de Resíduos Sólidos Urbanos',
+                    date: '10 Jun, 2023',
+                    author: 'João Santos',
+                    readTime: '4 min de leitura',
+                    image: 'https://sanetrancombra551d.zapwp.com/q:i/r:0/wp:0/w:1/u:https://sanetran.com.br/wp-content/uploads/2024/09/4036-2.jpg',
+                    content: `
+                        <p>A gestão de resíduos sólidos urbanos é um dos maiores desafios das cidades contemporâneas. Com o crescimento populacional e o aumento do consumo, a quantidade de lixo produzido cresce exponencialmente.</p>
+                        <p><strong>Coleta Seletiva Inteligente</strong><br>
+                        Sensores instalados em lixeiras e caminhões de coleta permitem otimizar rotas, reduzir custos operacionais e aumentar a eficiência da reciclagem.</p>
+                        <p><strong>Plantas de Triagem Automatizadas</strong><br>
+                        Utilizando inteligência artificial e robótica, essas plantas separam materiais recicláveis com alta precisão, aumentando a taxa de recuperação de materiais valiosos.</p>
+                        <p><strong>Economia Circular</strong><br>
+                        A transformação de resíduos em novos produtos está criando cadeias produtivas sustentáveis, gerando emprego e renda enquanto reduz o impacto ambiental.</p>
+                        <p>As cidades que investem em gestão inteligente de resíduos estão não apenas preservando o meio ambiente, mas também criando oportunidades econômicas e melhorando a qualidade de vida de seus cidadãos.</p>
+                    `,
+                    tags: ['#Resíduos', '#Reciclagem', '#EconomiaCircular', '#CidadesInteligentes'],
+                    likes: 38
+                },
+                3: {
+                    title: 'Impactos das Mudanças Climáticas nos Recursos Hídricos',
+                    date: '5 Jun, 2023',
+                    author: 'Ana Costa',
+                    readTime: '6 min de leitura',
+                    image: 'https://static.wixstatic.com/media/62e464_26fe0c14aa0843829782bbdb5bfd33a3~mv2.jpeg/v1/fill/w_1000,h_563,al_c,q_85,usm_0.66_1.00_0.01/62e464_26fe0c14aa0843829782bbdb5bfd33a3~mv2.jpeg',
+                    content: `
+                        <p>As mudanças climáticas representam uma ameaça significativa para a disponibilidade e qualidade dos recursos hídricos em todo o mundo. O aumento da temperatura global está alterando padrões de precipitação, derretendo geleiras e intensificando eventos extremos.</p>
+                        <p><strong>Escassez Hídrica</strong><br>
+                        Regiões que já sofrem com estresse hídrico estão enfrentando secas mais severas e frequentes, comprometendo o abastecimento de água para consumo humano, agricultura e indústria.</p>
+                        <p><strong>Qualidade da Água</strong><br>
+                        O aumento da temperatura da água favorece a proliferação de algas tóxicas e reduz a capacidade dos corpos d'água de se autodepurar, afetando a qualidade da água.</p>
+                        <p><strong>Eventos Extremos</strong><br>
+                        Enchentes e inundações estão se tornando mais intensas, causando danos a infraestruturas de abastecimento e tratamento de água, além de contaminar fontes de água.</p>
+                        <p>Para enfrentar esses desafios, é necessário investir em infraestrutura resiliente, gestão integrada de recursos hídricos e políticas públicas que priorizem a sustentabilidade e a adaptação às mudanças climáticas.</p>
+                    `,
+                    tags: ['#MudançasClimáticas', '#RecursosHídricos', '#Sustentabilidade', '#Adaptação'],
+                    likes: 56
+                }
+            };
+
+            let currentPostId = null;
+            let liked = false;
+
+            function openPostModal(postId) {
+                const post = postData[postId];
+                if (!post) return;
+
+                currentPostId = postId;
+                liked = false;
+
+                document.getElementById('postModalTitle').textContent = post.title;
+                document.getElementById('postModalDate').textContent = post.date;
+                document.getElementById('postModalAuthor').textContent = post.author;
+                document.getElementById('postModalReadTime').textContent = post.readTime;
+                document.getElementById('postModalImage').src = post.image;
+                document.getElementById('postModalImage').alt = post.title;
+                document.getElementById('postModalContent').innerHTML = post.content;
+
+                const tagsContainer = document.getElementById('postModalTags');
+                tagsContainer.innerHTML = post.tags.map(tag => `<span>${tag}</span>`).join('');
+
+                document.getElementById('likeCount').textContent = post.likes;
+                const likeBtn = document.getElementById('likeBtn');
+                likeBtn.classList.remove('liked');
+                likeBtn.innerHTML = `<i class="far fa-heart" aria-hidden="true"></i> Curtir (<span id="likeCount">${post.likes}</span>)`;
+
+                openModal(postModal);
+            }
+
+            // Read More buttons
+            document.querySelectorAll('.read-more').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const postId = parseInt(this.dataset.post);
+                    openPostModal(postId);
+                });
+            });
+
+            // Click on post card to open
+            document.querySelectorAll('.post-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const postId = parseInt(this.dataset.post);
+                    openPostModal(postId);
+                });
+            });
+
+            // Close post modal
+            document.querySelector('.close-post-modal')?.addEventListener('click', () => {
+                closeModal(postModal);
+            });
+
+            // Like button
+            document.getElementById('likeBtn').addEventListener('click', function() {
+                if (currentPostId === null) return;
+                const post = postData[currentPostId];
+                liked = !liked;
+                if (liked) {
+                    post.likes++;
+                    this.classList.add('liked');
+                    this.innerHTML = `<i class="fas fa-heart" aria-hidden="true"></i> Curtir (<span id="likeCount">${post.likes}</span>)`;
+                    showToast('❤️ Você curtiu este post!', 'success');
+                } else {
+                    post.likes--;
+                    this.classList.remove('liked');
+                    this.innerHTML = `<i class="far fa-heart" aria-hidden="true"></i> Curtir (<span id="likeCount">${post.likes}</span>)`;
+                }
+            });
+
+            // Share button
+            document.getElementById('shareBtn').addEventListener('click', function() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: document.getElementById('postModalTitle').textContent,
+                        text: 'Confira este artigo incrível no HSALink!',
+                        url: window.location.href
+                    }).catch(() => {});
+                } else {
+                    navigator.clipboard.writeText(window.location.href).then(() => {
+                        showToast('🔗 Link copiado para a área de transferência!', 'info');
+                    }).catch(() => {
+                        showToast('Compartilhe este artigo! 🌱', 'info');
+                    });
+                }
+            });
+
+            // Bookmark button
+            document.getElementById('bookmarkBtn').addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                const isBookmarked = icon.classList.contains('fas');
+                if (isBookmarked) {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    this.innerHTML = `<i class="far fa-bookmark" aria-hidden="true"></i> Salvar`;
+                    showToast('🔖 Removido dos favoritos', 'info');
+                } else {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    this.innerHTML = `<i class="fas fa-bookmark" aria-hidden="true"></i> Salvo`;
+                    showToast('📑 Post salvo com sucesso!', 'success');
+                }
+            });
+
+ // =============================================
+            // 8. CONTACT FORM
+            // =============================================
+            const contactForm = document.getElementById('contactForm');
+            const thankYouModal = document.getElementById('thankYouModal');
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = document.getElementById('name');
+                const email = document.getElementById('email');
+                const subject = document.getElementById('subject');
+                const message = document.getElementById('message');
+                let isValid = true;
+
+                [name, email, subject, message].forEach(field => {
+                    const error = document.getElementById(field.id + 'Error');
+                    if (!field.value.trim()) {
+                        field.classList.add('error');
+                        error.classList.add('show');
+                        isValid = false;
+                    } else {
+                        field.classList.remove('error');
+                        field.classList.add('success');
+                        error.classList.remove('show');
+                    }
+                });
+
+                if (email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+                    email.classList.add('error');
+                    document.getElementById('emailError').textContent = 'Informe um e-mail válido.';
+                    document.getElementById('emailError').classList.add('show');
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    const submitBtn = document.getElementById('submitContact');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<span class="spinner"></span> Enviando...';
+
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalText;
+                        this.reset();
+                        [name, email, subject, message].forEach(f => {
+                            f.classList.remove('success');
+                        });
+                        document.getElementById('charCount').textContent = '0 caracteres';
+                        openModal(thankYouModal);
+                    }, 1500);
+                }
+            });
+
+            document.getElementById('closeThankYou').addEventListener('click', () => {
+                closeModal(thankYouModal);
+            });
+
+            // =============================================
+            // 9. NEWSLETTER
+            // =============================================
+            const newsletterForm = document.getElementById('newsletterForm');
+            const newsletterThankYouModal = document.getElementById('newsletterThankYouModal');
+
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const input = document.getElementById('newsletterEmail');
+                const email = input.value.trim();
+
+                if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    const btn = this.querySelector('button');
+                    const originalText = btn.textContent;
+                    btn.disabled = true;
+                    btn.innerHTML = '<span class="spinner"></span> Inscrevendo...';
+
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        btn.textContent = originalText;
+                        input.value = '';
+                        openModal(newsletterThankYouModal);
+                    }, 1000);
+                } else {
+                    input.classList.add('error');
+                    input.focus();
+                    showToast('⚠️ Informe um e-mail válido.', 'error');
+                    setTimeout(() => input.classList.remove('error'), 3000);
+                }
+            });
+
+            document.getElementById('closeNewsletterThankYou').addEventListener('click', () => {
+                closeModal(newsletterThankYouModal);
+            });
+
+            // =============================================
+            // 10. COOKIE CONSENT
+            // =============================================
+            const cookieConsent = document.getElementById('cookieConsent');
+
+            if (!localStorage.getItem('cookieConsent')) {
+                setTimeout(() => {
+                    cookieConsent.classList.add('show');
+                }, 1000);
+            }
+
+            document.getElementById('acceptCookies').addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieConsent.classList.remove('show');
+                showToast('🍪 Cookies aceitos!', 'success');
+            });
+
+            document.getElementById('rejectCookies').addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'rejected');
+                cookieConsent.classList.remove('show');
+            });
+
+            // =============================================
+            // 11. SCROLL TO TOP
+            // =============================================
+            const scrollBtn = document.getElementById('scrollTopBtn');
+
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 400) {
+                    scrollBtn.classList.add('visible');
+                } else {
+                    scrollBtn.classList.remove('visible');
+                }
+            });
+
+            scrollBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // =============================================
+            // 12. SMOOTH SCROLL
+            // =============================================
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const headerHeight = header.offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // =============================================
+            // 13. CHARACTER COUNTER
+            // =============================================
+            const messageField = document.getElementById('message');
+            const charCount = document.getElementById('charCount');
+
+            messageField.addEventListener('input', function() {
+                const count = this.value.length;
+                charCount.textContent = `${count} caracteres`;
+                if (count > 500) {
+                    this.value = this.value.slice(0, 500);
+                    charCount.textContent = '500 caracteres (máximo)';
+                }
+            });
+
+            console.log('🌱 HSALink - Conectando o futuro do saneamento ambiental!');
+            console.log('📱 Modo mobile: Botões de login e cadastro disponíveis no menu!');
+        })();
+    </script>
 </body>
 </html>
